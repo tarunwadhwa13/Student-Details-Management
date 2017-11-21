@@ -14,6 +14,7 @@ $(document).ready(function() {
                 
                 temp = '<div class="slider"><ul><li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>\
                     <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>\
+                    <li><i class="fa fa-check" aria-hidden="true" data-toggle="tooltip" title="Select"></i></li>\
                 </ul>\
             </div>'
             
