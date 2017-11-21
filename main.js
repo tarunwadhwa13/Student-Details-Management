@@ -12,8 +12,8 @@ $(document).ready(function() {
         $('#addRow').on( 'click', function () {
                counter = $('#student tr').length-1;
                 
-                temp = '<div class="slider"><ul><li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>\
-                    <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>\
+                temp = '<div class="slider"><ul><li><i class="edit fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>\
+                    <li><i class="fa fa-trash confirm" aria-hidden="true" data-toggle="tooltip" title="Delete" data-confirm-button="Yes I am" data-cancel-button="Whoops no"></i></li>\
                     <li><i class="fa fa-check" aria-hidden="true" data-toggle="tooltip" title="Select"></i></li>\
                 </ul>\
             </div>'
@@ -65,9 +65,9 @@ $(document).ready(function() {
     });    
 
     // Edit Details
-    $('i.fa.fa-pencil').on('click',function () {
+    $(document).on('click','i.edit',function () {
         var currentTD = $(this).parents('tr').find('td');
-        if ($(this).prop('class') == 'fa fa-pencil') {
+        if ($(this).prop('class') == 'edit fa fa-pencil') {
             $(this).removeClass('fa-pencil');
             $(this).addClass('fa-floppy-o');                  
             $.each(currentTD, function () {
@@ -85,12 +85,13 @@ $(document).ready(function() {
     });
 
     // select rows
-    $('.fa-check').on('click',function(){
-    if($(this).prop('class')== 'fa fa-check'){
+    $(document).on('click','i.fa-check',function(){
+    if($(this).prop('class') == 'fa fa-check'){
         $(this).parents('tr').css('background-color','grey');
-        $(this).parents('tr').addClass('selected');
+        
         $(this).removeClass('fa-check');
         $(this).addClass('fa-times');
+        $(this).parents('tr').addClass('selected');
 
     } else {
         $(this).parents('tr').css('background-color','white');
@@ -115,7 +116,7 @@ $(document).ready(function() {
 
 
     // delete Entries
-    $(".fa-trash").confirm({
+    $('.fa-trash').confirm({
         text: "Are you sure you want to delete that Entry?",
         title: "Confirmation required",
         confirm: function(button) {
@@ -132,10 +133,7 @@ $(document).ready(function() {
         confirmButtonClass: "btn-danger",
         cancelButtonClass: "btn-default",
         dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
-    }); 
-
-        
-
+    });
         
 
 
