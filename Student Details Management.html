@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US" utf-8>
+    <head>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+            
+          <!--  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js>"></script>  -->
+            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+            <link rel="stylesheet" href="main.css">
+            <script src="main.js"></script>
+        <body>
+            <div class="wrapper">
+
+                <section class="welcome-screen">
+                        <h1> Welcome to Student Details Management Project </h1>
+                        <h3> Enter name to access your account </h3>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Name" id="name-input">
+                            <button id="go"> Go </button>
+                            <div class="wrong"></div>
+                        </div>
+                    </section>
+            
+                        
+            <div class="main hidden container">
+                    <header>
+                            <div class="right floated user-name"> </div>
+                        </header>
+                <h2>Student Details Management System</h2>
+                <table class="table table-hover" id="student">
+                    <thead>
+                    <tr> 
+                        <!-- <th>#</th> -->
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th></th>
+                        
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="left-right">
+                           <!-- <th scope="row">1</th>-->
+                            <td>1682</td>
+                            <td>Tarun</td>
+                            <td>30</td>
+                            <td>
+                                <div class="slider">
+                                        <ul>
+                                                <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
+                                                <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>
+                                        </ul>
+                                </div>
+                                
+                            </td>
+                    
+                    </tr>
+                    <tr class="left-right">
+                        <!-- <th scope="row">2</th> -->
+                        <td>1628</td>
+                        <td>Shubham</td>
+                        <td>40</td>
+                        <td>
+                                <div class="slider">
+                                    <ul>
+                                        <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
+                                        <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>
+                                    </ul>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="left-right">
+                        <!-- <th scope="row">3</th> -->
+                        <td>1736</td>
+                        <td>Vishwas</td>
+                        <td>41</td>
+                        <td>
+                                <div class="slider">
+                                    <ul>
+                                        <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
+                                        <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>
+                                    </ul>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="left-right hidden" id="add_only">
+                        <!-- <th scope="row">New Entry</th> -->
+                         <td>Rollno = <input type="text" name="rollno" id="rollno"></td>
+                        <td>Name = <input type="text" name="name" id="name"></td>
+                        <td>Marks = <input type="text" name="marks" id="marks"></td>
+                        <td><input type="submit" class="btn btn-default" value="Add" id="addRow"></td>
+
+                    </tr>
+
+                    
+                    </tbody>
+                </table>
+                
+                    <input type="button" class="btn btn-default" id="add_entry" value="Add New Entry">
+
+                
+                
+            </div>
+            </div>
+
+            
+        </body>
+    </head>
+</html>

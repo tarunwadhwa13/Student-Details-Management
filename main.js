@@ -21,7 +21,7 @@ $(document).ready(function() {
             var rollno = $('#rollno').val();
             var name = $('#name').val();
             var marks = $('#marks').val();
-            var to_add = '<tr class="left-right"><th scope="row">'+ counter + '</th><td>'+ rollno + '</td><td>\
+            var to_add = '<tr class="left-right"><td>'+ rollno + '</td><td>\
             ' + name + '</td><td>' + marks + '</td><td>' + temp + '</tr>'
 
             $('#student').find('tbody').append(to_add);
@@ -83,9 +83,10 @@ $(document).ready(function() {
     });
 
     $('i.fa.fa-trash').on('click',function(){
-        row_index = $('tr').index(this)+2;
+        row_index = $(this).parents('tr').index()+1
         console.log(row_index);
-        $('#student').find('tr:last').remove();
+        document.getElementById("student").deleteRow(row_index);
+
         
     });
 
