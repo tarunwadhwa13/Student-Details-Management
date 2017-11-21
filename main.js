@@ -17,11 +17,13 @@ $(document).ready(function() {
                     <li><i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></li>\
                 </ul>\
             </div>'
+            
             var rollno = $('#rollno').val();
             var name = $('#name').val();
             var marks = $('#marks').val();
             var to_add = '<tr class="left-right"><th scope="row">'+ counter + '</th><td>'+ rollno + '</td><td>\
             ' + name + '</td><td>' + marks + '</td><td>' + temp + '</tr>'
+
             $('#student').find('tbody').append(to_add);
             $("#add_only").addClass('hidden');
             counter++;
@@ -58,7 +60,7 @@ $(document).ready(function() {
     });    
 
     // Edit Details
-    $('.fa-pencil').click(function () {
+    $('i.fa.fa-pencil').on('click',function () {
         var currentTD = $(this).parents('tr').find('td');
         if ($(this).prop('class') == 'fa fa-pencil') {
             $(this).removeClass('fa-pencil');
@@ -75,15 +77,17 @@ $(document).ready(function() {
             });   
         }
 
-       
+    
 
         
     });
 
-
-    
-
-    
+    $('i.fa.fa-trash').on('click',function(){
+        row_index = $('tr').index(this)+2;
+        console.log(row_index);
+        $('#student').find('tr:last').remove();
+        
+    });
 
 });
 // update search box view
