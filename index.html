@@ -60,6 +60,7 @@
                                         <ul>
                                                 <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
                                                 <li><i class="fa fa-trash confirm" aria-hidden="true" data-toggle="tooltip" title="Delete" data-confirm-button="Yes I am" data-cancel-button="Whoops no"></i></li>
+                                                <li><i class="fa fa-check" aria-hidden="true" data-toggle="tooltip" title="Select"></i></li>
                                         </ul>
                                 </div>
                                 
@@ -76,6 +77,7 @@
                                     <ul>
                                         <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
                                         <li><i class="fa fa-trash confirm" aria-hidden="true" data-toggle="tooltip" title="Delete" data-confirm-button="Yes I am" data-cancel-button="Whoops no"></i></li>
+                                        <li><i class="fa fa-check" aria-hidden="true" data-toggle="tooltip" title="Select"></i></li>
                                     </ul>
                                 </div>
                         </td>
@@ -90,15 +92,16 @@
                                     <ul>
                                         <li><i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></li>
                                         <li><i class="fa fa-trash confirm" aria-hidden="true" data-toggle="tooltip" title="Delete" data-confirm-button="Yes I am" data-cancel-button="Whoops no"></i></li>
+                                        <li><i class="fa fa-check" aria-hidden="true" data-toggle="tooltip" title="Select"></i></li>
                                     </ul>
                                 </div>
                         </td>
                     </tr>
                     <tr class="left-right hidden" id="add_only">
                         <!-- <th scope="row">New Entry</th> -->
-                         <td>Rollno = <input type="text" name="rollno" id="rollno"></td>
-                        <td>Name = <input type="text" name="name" id="name"></td>
-                        <td>Marks = <input type="text" name="marks" id="marks"></td>
+                         <td>Rollno = <input type="number" name="rollno" id="rollno" required></td>
+                        <td>Name = <input type="text" name="name" id="name" required></td>
+                        <td>Marks = <input type="number" name="marks" id="marks" required></td>
                         <td><input type="submit" class="btn btn-default" value="Add" id="addRow"></td>
 
                     </tr>

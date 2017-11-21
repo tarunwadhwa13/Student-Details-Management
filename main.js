@@ -53,9 +53,14 @@ $(document).ready(function() {
     // Show entry inputs
 
     $('#add_entry').on( 'click', function() {
+        if($(this).prop('value')=="Add New Entry"){
          var row = $('tr:last');
          $("#add_only").insertAfter(row);
         $('#add_only').removeClass('hidden');
+        }
+        else{
+            multiple_delete();
+        }
     });    
 
     // Edit Details
@@ -63,30 +68,57 @@ $(document).ready(function() {
         var currentTD = $(this).parents('tr').find('td');
         if ($(this).prop('class') == 'fa fa-pencil') {
             $(this).removeClass('fa-pencil');
-            $(this).addClass('fa-check');                  
+            $(this).addClass('fa-floppy-o');                  
             $.each(currentTD, function () {
                 $(this).prop('contenteditable', true)
                 
             });
         } else {
-            $(this).removeClass('fa-check');
+            $(this).removeClass('fa-floppy-o');
             $(this).addClass('fa-pencil');
            $.each(currentTD, function () {
                 $(this).prop('contenteditable', false);   
             });   
         }
-
-    
-
         
     });
+
+    // select rows
+    $('.fa-check').on('click',function(){
+    if($(this).prop('class')== 'fa fa-check'){
+        $(this).parents('tr').css('background-color','grey');
+        $(this).parents('tr').addClass('selected');
+        $(this).removeClass('fa-check');
+        $(this).addClass('fa-times');
+
+    } else {
+        $(this).parents('tr').css('background-color','white');
+        $(this).removeClass('fa-times');
+        $(this).addClass('fa-check');
+        $(this).parents('tr').removeClass('selected');
+    }
+
+    if($('.selected').length>0){
+        $('#add_entry').prop('value','Delete Entries');
+    }
+    else{
+        $('#add_entry').prop('value','Add New Entry');
+    }
+    });
+
+    // multiple delete
+    function multiple_delete(){
+        $('.selected').remove();
+        $('#add_entry').prop('value','Add New Entry');
+    }
+
 
     // delete Entries
     $(".fa-trash").confirm({
         text: "Are you sure you want to delete that Entry?",
         title: "Confirmation required",
         confirm: function(button) {
-            row_index = $(this).parents('tr').index()+2
+            row_index = $(this).parents('tr').index()+2;
             console.log(row_index);
             document.getElementById("student").deleteRow(row_index);
         },
