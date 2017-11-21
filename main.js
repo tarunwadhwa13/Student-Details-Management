@@ -7,7 +7,6 @@ $(document).ready(function() {
     //     $('#student_info').addClass('hidden');
 
 
-
     // add new Row
 
         $('#addRow').on( 'click', function () {
@@ -82,13 +81,30 @@ $(document).ready(function() {
         
     });
 
-    $('i.fa.fa-trash').on('click',function(){
-        row_index = $(this).parents('tr').index()+1
-        console.log(row_index);
-        document.getElementById("student").deleteRow(row_index);
+    // delete Entries
+    $(".fa-trash").confirm({
+        text: "Are you sure you want to delete that Entry?",
+        title: "Confirmation required",
+        confirm: function(button) {
+            row_index = $(this).parents('tr').index()+2
+            console.log(row_index);
+            document.getElementById("student").deleteRow(row_index);
+        },
+        cancel: function(button) {
+            // nothing to do
+        },
+        confirmButton: "Yes I am",
+        cancelButton: "No",
+        post: true,
+        confirmButtonClass: "btn-danger",
+        cancelButtonClass: "btn-default",
+        dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+    }); 
 
         
-    });
+
+        
+
 
 });
 // update search box view
